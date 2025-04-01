@@ -72,3 +72,11 @@ Route::controller(App\Http\Controllers\EnrollmentController::class)->group(funct
     //Midtrans Notif Handler
     Route::post('/midtrans/notification',  'notificationHandler');
 });
+
+Route::get('/memory-usage', function () {
+    return response()->json([
+        'memory_used' => memory_get_usage(true) . ' bytes',
+        'memory_peak' => memory_get_peak_usage(true) . ' bytes',
+        'memory_limit' => ini_get('memory_limit')
+    ]);
+});
