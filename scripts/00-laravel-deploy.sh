@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+echo "Cleanig logs..."
+rm -rf storage/logs/*
+
 echo "Running composer"
 composer install --no-dev --working-dir=/var/www/html
 
